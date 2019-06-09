@@ -5,6 +5,10 @@ import javax.persistence.PersistenceContext;
 
 import org.lasencinas.cotxoxsSpring.domain.Carrera;
 import org.lasencinas.cotxoxsSpring.domain.Conductor;
+import org.lasencinas.cotxoxsSpring.repository.CarreraRepo;
+import org.lasencinas.cotxoxsSpring.service.CarreraService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.Repository;
 import org.springframework.test.context.jdbc.Sql;
 import org.junit.Assert;
 import org.junit.Test;
@@ -31,12 +35,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 public class CotxoxsSpringApplicationTests {
 
-	/* @Autowired(required=false)
+	@Autowired(required=false)
 	CarreraRepo carreraRepo;
 
 	@Autowired(required=false)
 	CarreraService carreraService;
-
+/*
 	@Autowired(required=false)
 	ConductorRepo conductorRepo;
 
@@ -74,26 +78,26 @@ public class CotxoxsSpringApplicationTests {
 		Assert.assertEquals("4916119711304546", carrera.getTarjetaCredito());
 		Assert.assertEquals("Samantha", carrera.getConductor().getNombre());
 	}
-//
-//	/**
-//	 * Crea una classe CarreraRepo que sigui un repositori Spring Data
-//	 * per l'entitat Carrera
-//	 */
-//	@Test
-//	public void test_RepoCarerra_es_repositori() {
-//		Assert.assertNotNull(carreraRepo);
-//		Assert.assertTrue(carreraRepo instanceof Repository);
-//	}
-//
-//	/**
-//	 * Crea una classe CarreraService que sigui un component
-//	 * amb el rol de Service
-//	 */
-//	@Test
-//	public void test_carreraService_es_component() {
-//		Assert.assertNotNull(carreraService);
-//	}
-//
+
+	/**
+	 * Crea una classe CarreraRepo que sigui un repositori Spring Data
+	 * per l'entitat Carrera
+ 	*/
+	@Test
+	public void test_RepoCarerra_es_repositori() {
+		Assert.assertNotNull(carreraRepo);
+		Assert.assertTrue(carreraRepo instanceof Repository);
+	}
+
+	/**
+	 * Crea una classe CarreraService que sigui un component
+	 * amb el rol de Service
+	 */
+ 	@Test
+	public void test_carreraService_es_component() {
+		Assert.assertNotNull(carreraService);
+	}
+
 //	/**
 //	 * Utilitza els mètodes del repositori de carrera
 //	 * i del servei carrera per a fer persistent una carrera
@@ -113,7 +117,7 @@ public class CotxoxsSpringApplicationTests {
 //	@Test
 //	public void test_ConductorRepo_es_repositori() {
 //		Assert.assertNotNull(conductorRepo);
-//		Assert.assertTrue(conductorRepo instanceof Repository);
+//		Assert.assertTrue(conductorRepo instanceof repository);
 //	}
 //
 //	/**

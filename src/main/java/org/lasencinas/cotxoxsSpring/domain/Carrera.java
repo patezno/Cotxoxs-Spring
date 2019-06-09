@@ -9,7 +9,7 @@ public class Carrera {
     @Id
     @Column(name = "c_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
     @Column(name = "c_tarjeta_credito")
     private String tarjetaCredito;
@@ -36,14 +36,14 @@ public class Carrera {
     private int propina;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "co_nombre")
+    @JoinColumn(name = "c_conductor")
     private Conductor conductor;
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
