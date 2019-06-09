@@ -6,6 +6,7 @@ import javax.persistence.PersistenceContext;
 import org.lasencinas.cotxoxsSpring.domain.Carrera;
 import org.lasencinas.cotxoxsSpring.domain.Conductor;
 import org.lasencinas.cotxoxsSpring.repository.CarreraRepo;
+import org.lasencinas.cotxoxsSpring.repository.ConductorRepo;
 import org.lasencinas.cotxoxsSpring.service.CarreraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.Repository;
@@ -40,10 +41,10 @@ public class CotxoxsSpringApplicationTests {
 
 	@Autowired(required=false)
 	CarreraService carreraService;
-/*
+
 	@Autowired(required=false)
 	ConductorRepo conductorRepo;
-
+/*
 	@Autowired(required=false)
 	ConductorService conductorService; */
 
@@ -98,28 +99,28 @@ public class CotxoxsSpringApplicationTests {
 		Assert.assertNotNull(carreraService);
 	}
 
-//	/**
-//	 * Utilitza els mètodes del repositori de carrera
-//	 * i del servei carrera per a fer persistent una carrera
-//	 */
-//
-//	@Test
-//	public void test_save_carrera() {
-//		Long idCarrera = carreraService.crearCarrera("1234567890123456", "Parc de Ses Estacions", "Festival Park", 15, 18);
-//		// seria necessari afegir el conductor però anem a testear primer repo
-//		Assert.assertEquals("1234567890123456", carreraService.recuperaCarrera(idCarrera).getTarjetaCredito());
-//	}
-//
-//	/**
-//	 * Crea una classe ConductorRepo que sigui un repositori Spring Data
-//	 * per l'entitat Conductor
-//	 */
-//	@Test
-//	public void test_ConductorRepo_es_repositori() {
-//		Assert.assertNotNull(conductorRepo);
-//		Assert.assertTrue(conductorRepo instanceof repository);
-//	}
-//
+	/**
+	 * Utilitza els mètodes del repositori de carrera
+	 * i del servei carrera per a fer persistent una carrera
+	 */
+
+	@Test
+	public void test_save_carrera() {
+		Long idCarrera = carreraService.crearCarrera("1234567890123456", "Parc de Ses Estacions", "Festival Park", 15, 18);
+		// seria necessari afegir el conductor però anem a testear primer repo
+		Assert.assertEquals("1234567890123456", carreraService.recuperaCarrera(idCarrera).getTarjetaCredito());
+	}
+
+	/**
+	 * Crea una classe ConductorRepo que sigui un repositori Spring Data
+	 * per l'entitat Conductor
+	 */
+	@Test
+	public void test_ConductorRepo_es_repositori() {
+		Assert.assertNotNull(conductorRepo);
+		Assert.assertTrue(conductorRepo instanceof Repository);
+	}
+
 //	/**
 //	 * Implementa el servei de l'entitat conductor i el seu repositori
 //	 * per a recuperar un conductor per la seva targeta de crèdit.

@@ -9,9 +9,6 @@ import javax.persistence.Table;
 @Table(name = "t_conductores")
 public class Conductor {
 
-    public Conductor() {
-    }
-
     @Id
     @Column(name = "co_nombre")
     private String nombre;
