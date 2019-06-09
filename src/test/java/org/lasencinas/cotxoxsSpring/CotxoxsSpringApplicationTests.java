@@ -5,6 +5,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.swing.text.Caret;
 
+import org.lasencinas.cotxoxs.Domain.Carrera;
+import org.lasencinas.cotxoxs.Domain.Conductor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.Repository;
 import org.springframework.test.context.jdbc.Sql;
@@ -32,7 +34,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 		"alter table t_carreras add constraint carreras_conductor_fk foreign key (c_conductor) references t_conductores",
 		"delete from t_carreras",
 		"delete from t_conductores",
-		"insert into t_conductores (co_tarjeta_credito, co_nombre, co_modelo, co_matricula, co_valoracion_media, co_ocupado) values ('1111111111111111' , 'Samantha', 'Chevy Malibu', '4ABC123', 0, 0)",
+		"insert into t_conductores (co_nombre, co_modelo, co_matricula, co_valoracion_media, co_ocupado) values ('1111111111111111' , 'Samantha', 'Chevy Malibu', '4ABC123', 0, 0)",
 		"insert into t_carreras (c_tarjeta_credito, c_origen, c_destino, c_distancia, c_tiempo_esperado, c_tiempo_carrera, c_coste_total, c_propina, c_conductor) values ('4916119711304546', 'Aeroport Son Sant Joan', 'Magaluf', 7.75, 10, 0, 0, 0, '1111111111111111')"
 })
 
