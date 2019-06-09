@@ -1,41 +1,42 @@
-package org.lasencinas.cotxoxs.Domain;
+package org.lasencinas.cotxoxsSpring.domain;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="t_carreras")
+@Table(name = "t_carreras")
 public class Carrera {
 
     @Id
-    @Column(name="c_id")
+    @Column(name = "c_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name="c_tarjeta_credito")
+    @Column(name = "c_tarjeta_credito")
     private String tarjetaCredito;
 
-    @Column(name="c_origen")
+    @Column(name = "c_origen")
     private String origen;
 
-    @Column(name="c_destino")
+    @Column(name = "c_destino")
     private String destino;
 
-    @Column(name="c_distancia")
+    @Column(name = "c_distancia")
     private double distancia;
 
-    @Column(name="c_tiempo_esperado")
+    @Column(name = "c_tiempo_esperado")
     private int tiempoEsperado;
 
-    @Column(name="c_tiempo_carrera")
+    @Column(name = "c_tiempo_carrera")
     private int tiempoCarrera;
 
-    @Column(name="c_coste_total")
+    @Column(name = "c_coste_total")
     private int costeTotal;
 
-    @Column(name="c_propina")
+    @Column(name = "c_propina")
     private int propina;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name="co_nombre")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "co_nombre")
     private Conductor conductor;
 
     public Integer getId() {
